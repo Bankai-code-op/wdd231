@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 231</title>
+    <title>WDD 231 - Web Frontend Development I | Mike Chishala</title>
+    <meta name="description"
+        content="WDD 231 - Web Frontend Development I course home page for Mike Chishala, featuring web development projects, certificate coursework, and responsive design.">
+    <meta name="author" content="Mike Chishala">
+
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/home-small.css">
+    <link rel="stylesheet" href="styles/home-larger.css">
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 </head>
+
 <body>
-    <h1>WDD231 - Home Page</h1>
+    <header>
+
+        <div class="brand">
+            <img src="images/logo.svg" alt="Mike Chishala Site Logo" width="44" height="44" class="site-logo">
+            <span class="site-name">Mike Chishala</span>
+        </div>
+
+        <button id="menu" class="menu-button" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    </header>
+
+    <nav id="nav-bar" class="navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="chamber/index.html">Chamber</a>
+        <a href="final/index.html">Final</a>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+
+        <section class="card about-me">
+
+            <h2>About Me</h2>
+
+            <div class="bio-container">
+                <p>Hello! My name is <strong>Mike Chishala</strong>. I am a web and computer programming student
+                    enrolled in WDD 231 (Web Frontend Development I) through BYU-Pathway Worldwide and BYU-Idaho.</p>
+                <p>I enjoy building clean, accessible, and responsive websites using modern HTML, CSS, and JavaScript.
+                    My goal is to become an accomplished frontend engineer who develops impactful solutions for
+                    communities worldwide.</p>
+            </div>
+
+        </section>
+
+        <section class="card student-photo-card">
+
+            <h2>Student Photo</h2>
+
+            <div class="photo-container">
+                <img src="images/FB_IMG_4000168977419945739.jpg" alt="Mike Chishala - Student Portrait"
+                    class="student-photo" width="280" height="373" loading="lazy">
+            </div>
+
+        </section>
+
+        <section class="card certificate">
+
+            <h2>Web Certificate Courses</h2>
+
+            <div class="course-filters">
+                <button id="all-courses" class="filter-btn active">All</button>
+                <button id="cse-courses" class="filter-btn">CSE</button>
+                <button id="wdd-courses" class="filter-btn">WDD</button>
+            </div>
+
+            <div id="courses-container" class="courses-container">
+                <!-- Course cards dynamically populated by scripts/course.js -->
+            </div>
+
+            <p id="total-credits" class="total-credits">Total Credits for displayed courses: <span
+                    id="credit-count">0</span></p>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+
+            <a href="https://github.com/Bankai-code-op" target="_blank" rel="noopener noreferrer"
+                aria-label="GitHub Profile">
+                <img src="images/github.svg" alt="GitHub icon" width="30" height="30">
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                <img src="images/linkedin.svg" alt="LinkedIn icon" width="30" height="30">
+            </a>
+
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X Profile">
+                <img src="images/x-twitter.svg" alt="X icon" width="30" height="30">
+            </a>
+            
+        </div>
+
+        <p class="copyright-info">
+            &copy; <span id="currentyear"></span> | Mike Chishala | Lusaka, Zambia
+        </p>
+
+        <p id="lastModified"></p>
+    </footer>
 </body>
+
 </html>
