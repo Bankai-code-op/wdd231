@@ -64,7 +64,8 @@ body {
 
 /* Header Section */
 header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+    background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -149,16 +150,16 @@ nav.navigation a {
 /* Hover without shifting/twitching */
 nav.navigation a:hover,
 nav.navigation a:focus-visible {
-    background-color: rgba(14, 165, 233, 0.25);
-    color: #38bdf8;
+    background-color: #075985;
+    color: #ffffff;
     border-left-color: #38bdf8;
     outline: none;
 }
 
-/* Wayfinding: Active page indicator */
+/* Wayfinding: Active page indicator (High contrast: 9.46:1) */
 nav.navigation a.active {
-    background-color: rgba(14, 165, 233, 0.35);
-    color: #38bdf8;
+    background-color: #0c4a6e;
+    color: #ffffff;
     font-weight: 700;
     border-left-color: #38bdf8;
 }
