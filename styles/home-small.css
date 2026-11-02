@@ -239,6 +239,9 @@ h1 {
     display: block;
     margin: 0 auto;
     transition: transform var(--transition-speed);
+    will-change: transform;
+    /* Prevent layout shift: intrinsic size matches 280 x 373 display slot */
+    contain-intrinsic-size: 280px 373px;
 }
 
 .student-photo:hover {
@@ -291,6 +294,7 @@ h1 {
     flex-direction: column;
     gap: 0.35rem;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    will-change: transform;
 }
 
 .course-card:hover {
@@ -360,6 +364,12 @@ h1 {
     color: var(--primary-color);
     margin-top: 0.5rem;
     font-size: 1rem;
+}
+
+/* Defer paint of below-fold section until near-visible */
+.certificate {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
 }
 
 /* Footer Section */

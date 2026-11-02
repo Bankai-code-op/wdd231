@@ -13,10 +13,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+
+    <!-- Preload the above-the-fold student photo (LCP element) -->
+    <link rel="preload" as="image" href="images/good-picture.jpg" fetchpriority="high">
 
     <link rel="stylesheet" href="styles/home-small.css">
-    <link rel="stylesheet" href="styles/home-larger.css">
+    <!-- media attribute makes this non-blocking on small screens -->
+    <link rel="stylesheet" href="styles/home-larger.css" media="screen and (min-width: 768px)">
 
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/date.js" defer></script>
@@ -62,8 +66,9 @@
             <h2>Student Photo</h2>
 
             <div class="photo-container">
+                <!-- fetchpriority=high: this is the LCP element; skip lazy for it -->
                 <img src="images/good-picture.jpg" alt="Mike Chishala - Student Portrait" class="student-photo"
-                    width="280" height="373" loading="lazy">
+                    width="560" height="747" fetchpriority="high" decoding="async">
             </div>
 
         </section>
@@ -93,15 +98,15 @@
 
             <a href="https://github.com/Bankai-code-op" target="_blank" rel="noopener noreferrer"
                 aria-label="GitHub Profile">
-                <img src="images/github.svg" alt="GitHub icon" width="30" height="30">
+                <img src="images/github.svg" alt="GitHub icon" width="30" height="30" loading="lazy">
             </a>
 
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                <img src="images/linkedin.svg" alt="LinkedIn icon" width="30" height="30">
+                <img src="images/linkedin.svg" alt="LinkedIn icon" width="30" height="30" loading="lazy">
             </a>
 
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X Profile">
-                <img src="images/x-twitter.svg" alt="Twitter icon" width="30" height="30">
+                <img src="images/x-twitter.svg" alt="Twitter icon" width="30" height="30" loading="lazy">
             </a>
 
         </div>
