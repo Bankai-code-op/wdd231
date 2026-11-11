@@ -16,6 +16,12 @@
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="apple-touch-icon" href="images/favicon.svg" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="data/members.json" as="fetch" crossorigin="anonymous" />
+  <link rel="preload" href="images/members/acme.svg" as="image" type="image/svg+xml" fetchpriority="high" />
+
   <!--  Open Graph / Facebook Social Meta  -->
   <meta property="og:type"         content="website" />
   <meta property="og:site_name"    content="Chamber of Commerce" />
@@ -37,6 +43,8 @@
 
   <!--  Scripts  -->
   <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/directory.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
 </head>
 <body>
 
@@ -68,7 +76,7 @@
   <!--  Main Content  -->
   <main>
     <section class="directory-section">
-      <h2>Member Directory</h2>
+      <h1>Member Directory</h1>
       <p>Browse our community of member businesses below.</p>
 
       <!-- Grid / List toggle controls -->
@@ -77,72 +85,22 @@
         <button class="view-btn"        id="btn-list" aria-label="List view"  title="List view" >&#9776;</button>
       </div>
 
-      <!-- Member cards injected here by JavaScript (or server) -->
       <div id="member-cards" class="cards-grid">
-
-        <!-- ── Placeholder cards (replace with JS-rendered content) ── -->
         <article class="member-card">
-
-          <img src="images/placeholder-logo.svg" alt="Acme Business Solutions logo"
-               width="80" height="80" loading="lazy" />
+          <img src="images/members/acme.svg" alt="Acme Business Solutions logo"
+               width="80" height="80" fetchpriority="high" />
           <h3>Acme Business Solutions</h3>
-
-          <address>
-            123 Main Street, Cityville
-          </address>
-          
+          <p class="industry">Technology</p>
+          <address>123 Main Street, Cityville, ST 10001</address>
           <p class="phone">(555) 010-0100</p>
-
-          <a class="website" href="https://acme.example.com" target="_blank" rel="noopener">
+          <a class="website" href="https://acme.example.com" target="_blank" rel="noopener noreferrer">
             acme.example.com
           </a>
-
+          <p class="tagline">"Enterprise solutions for modern businesses"</p>
+          <p class="founded">Est. 1998</p>
           <span class="membership-level gold">Gold Member</span>
         </article>
-
-        <article class="member-card">
-          <img src="images/placeholder-logo.svg" alt="Sunrise Bakery logo"
-               width="80" height="80" loading="lazy" />
-          <h3>Sunrise Bakery</h3>
-          <address>
-            45 Oak Avenue, Cityville
-          </address>
-          <p class="phone">(555) 020-0200</p>
-          <a class="website" href="https://sunrise.example.com" target="_blank" rel="noopener">
-            sunrise.example.com
-          </a>
-          <span class="membership-level silver">Silver Member</span>
-        </article>
-
-        <article class="member-card">
-          <img src="images/placeholder-logo.svg" alt="Cityville Realty logo"
-               width="80" height="80" loading="lazy" />
-          <h3>Cityville Realty</h3>
-          <address>
-            789 Commerce Blvd, Cityville
-          </address>
-          <p class="phone">(555) 030-0300</p>
-          <a class="website" href="https://realty.example.com" target="_blank" rel="noopener">
-            realty.example.com
-          </a>
-          <span class="membership-level gold">Gold Member</span>
-        </article>
-
-        <article class="member-card">
-          <img src="images/placeholder-logo.svg" alt="Green Valley Landscaping logo"
-               width="80" height="80" loading="lazy" />
-          <h3>Green Valley Landscaping</h3>
-          <address>
-            12 Garden Road, Cityville
-          </address>
-          <p class="phone">(555) 040-0400</p>
-          <a class="website" href="https://greenvalley.example.com" target="_blank" rel="noopener">
-            greenvalley.example.com
-          </a>
-          <span class="membership-level member">Member</span>
-        </article>
-
-      </div><!-- #member-cards -->
+      </div>
     </section>
   </main>
 
@@ -151,30 +109,6 @@
     <p>&copy; <span id="currentYear"></span> Chamber of Commerce &mdash; Mike Chishala</p>
     <p id="lastModified"></p>
   </footer>
-
-  <script>
-    // Year and last-modified
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-    document.getElementById('lastModified').textContent =
-      'Last modified: ' + document.lastModified;
-
-    // Grid / List view toggle
-    const gridBtn   = document.getElementById('btn-grid');
-    const listBtn   = document.getElementById('btn-list');
-    const cardArea  = document.getElementById('member-cards');
-
-    gridBtn.addEventListener('click', () => {
-      cardArea.classList.remove('list-view');
-      gridBtn.classList.add('active');
-      listBtn.classList.remove('active');
-    });
-
-    listBtn.addEventListener('click', () => {
-      cardArea.classList.add('list-view');
-      listBtn.classList.add('active');
-      gridBtn.classList.remove('active');
-    });
-  </script>
 
 </body>
 </html>

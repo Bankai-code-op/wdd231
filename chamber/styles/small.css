@@ -2,7 +2,7 @@
 :root {
   --clr-primary-dark : #0f172a;
   --clr-primary      : #1a365d;
-  --clr-secondary    : #0284c7;
+  --clr-secondary    : #0369a1;
   --clr-accent       : #0ea5e9;
   --clr-gold         : #d4a017;
   --clr-gold-light   : #fef3c7;
@@ -20,6 +20,12 @@
   --radius     : 8px;
   --shadow-sm  : 0 2px 8px rgba(15, 23, 42, 0.07);
   --shadow-md  : 0 4px 16px rgba(15, 23, 42, 0.11);
+}
+
+.member-card .website:hover,
+.member-card .website:focus-visible {
+  color: #075985;
+  outline-color: #075985;
 }
 
 /* 2. Base Reset & Box Model  */
@@ -62,9 +68,9 @@ a {
 
 a:hover,
 a:focus-visible {
-  color: var(--clr-accent);
+  color: #0369a1;
   text-decoration: underline;
-  outline: 2px solid var(--clr-accent);
+  outline: 2px solid var(--clr-secondary);
   outline-offset: 2px;
 }
 
@@ -75,7 +81,7 @@ h1, h2, h3, h4 {
 
 /* 3. Header  */
 header {
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #1e3a8a 100%);
+  background-color: var(--clr-primary);
   color: var(--clr-white);
   display: flex;
   align-items: center;
@@ -125,7 +131,8 @@ header {
   text-overflow: ellipsis;
 }
 
-/* 4. Hamburger button (mobile only)menu {
+/* 4. Hamburger button (mobile only) */
+#menu {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: var(--clr-white);
@@ -203,7 +210,7 @@ main {
 }
 
 /*  7. Directory Section */
-.directory-section h2 {
+.directory-section h1 {
   font-size: 1.6rem;
   color: var(--clr-primary);
   border-bottom: 3px solid var(--clr-secondary);
@@ -348,7 +355,8 @@ main {
   border: 1px solid var(--clr-gold);
 }
 
-/* ── 9. Additional card content fieldsmember-card .industry {
+/* ── 9. Additional card content fields */
+.member-card .industry {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -439,4 +447,3 @@ footer p {
   font-size: 0.8rem;
   color: #94a3b8;
 }
-

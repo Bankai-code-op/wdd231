@@ -36,7 +36,7 @@ async function fetchMembers() {
  * @param {Object} member
  * @returns {HTMLElement}
  */
-function buildCard(member) {
+function buildCard(member, isFirstCard) {
   const { name, address, phone, website, image, membershipLevel,
           tagline, industry, founded } = member;
 
@@ -52,7 +52,8 @@ function buildCard(member) {
       alt="${name} logo"
       width="80"
       height="80"
-      loading="lazy"
+      loading="${isFirstCard ? 'eager' : 'lazy'}"
+      ${isFirstCard ? 'fetchpriority="high"' : ''}
       onerror="this.src='images/placeholder-logo.svg'"
     />
     <h3>${name}</h3>
@@ -77,7 +78,9 @@ function buildCard(member) {
 function renderCards(members) {
   CARD_AREA.innerHTML = '';                     // clear loading state
   const fragment = document.createDocumentFragment();
-  members.forEach(member => fragment.appendChild(buildCard(member)));
+  members.forEach((member, index) => {
+    fragment.appendChild(buildCard(member, index === 0));
+  });
   CARD_AREA.appendChild(fragment);
 }
 
@@ -121,9 +124,6 @@ const savedView = localStorage.getItem('chamber-view') ?? 'grid';
 setView(savedView);
 
 // ── Init ────────────────────────────────────────────────────────────────────
-// Show a subtle loading state while data is fetched
-CARD_AREA.innerHTML = '<p class="loading-msg" aria-live="polite">Loading members…</p>';
-
 (async () => {
   try {
     const members = await fetchMembers();
@@ -133,4 +133,3 @@ CARD_AREA.innerHTML = '<p class="loading-msg" aria-live="polite">Loading members
     showError(err);
   }
 })();
-
