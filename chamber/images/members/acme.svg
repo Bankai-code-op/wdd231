@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" rx="10" fill="#1a365d"/>
+  <!-- Monitor screen -->
+  <rect x="12" y="18" width="56" height="36" rx="4" fill="#0ea5e9"/>
+  <rect x="16" y="22" width="48" height="28" rx="2" fill="#f8fafc"/>
+  <!-- Code lines -->
+  <rect x="20" y="28" width="20" height="3" rx="1" fill="#1a365d"/>
+  <rect x="20" y="34" width="30" height="3" rx="1" fill="#0284c7"/>
+  <rect x="20" y="40" width="16" height="3" rx="1" fill="#1a365d"/>
+  <!-- Stand -->
+  <rect x="34" y="54" width="12" height="6" rx="1" fill="#0ea5e9"/>
+  <rect x="26" y="60" width="28" height="4" rx="2" fill="#0ea5e9"/>
+  <!-- A letter -->
+  <text x="40" y="76" font-family="Arial" font-size="8" font-weight="bold" fill="#d4a017" text-anchor="middle">ACME</text>
+</svg>

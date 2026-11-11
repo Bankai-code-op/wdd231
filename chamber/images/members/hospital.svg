@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" rx="10" fill="#eff6ff"/>
+  <!-- Building -->
+  <rect x="10" y="30" width="60" height="42" rx="2" fill="#bfdbfe"/>
+  <rect x="10" y="30" width="60" height="10" rx="2" fill="#1e40af"/>
+  <!-- Red Cross -->
+  <rect x="32" y="14" width="16" height="40" rx="2" fill="#dc2626"/>
+  <rect x="20" y="26" width="40" height="16" rx="2" fill="#dc2626"/>
+  <rect x="34" y="16" width="12" height="36" rx="1" fill="#ffffff"/>
+  <rect x="22" y="28" width="36" height="12" rx="1" fill="#ffffff"/>
+  <!-- Windows -->
+  <rect x="16" y="46" width="12" height="10" rx="1" fill="#93c5fd"/>
+  <rect x="52" y="46" width="12" height="10" rx="1" fill="#93c5fd"/>
+  <!-- Door -->
+  <rect x="32" y="58" width="16" height="14" rx="1" fill="#1e40af"/>
+  <text x="40" y="77" font-family="Arial" font-size="6" font-weight="bold" fill="#1e40af" text-anchor="middle">HOSPITAL</text>
+</svg>

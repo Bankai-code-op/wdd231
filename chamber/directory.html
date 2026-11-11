@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--  Standard Meta  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Member Directory | Chamber of Commerce</title>
+
+  <meta name="description"
+        content="Browse the full member directory of the Chamber of Commerce. Discover local businesses, services, and community partners that keep our economy thriving." />
+
+  <meta name="author" content="Mike Chishala" />
+
+  <!--  Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="apple-touch-icon" href="images/favicon.svg" />
+
+  <!--  Open Graph / Facebook Social Meta  -->
+  <meta property="og:type"         content="website" />
+  <meta property="og:site_name"    content="Chamber of Commerce" />
+  <meta property="og:title"        content="Member Directory | Chamber of Commerce" />
+  <meta property="og:description"
+        content="Browse the full member directory of the Chamber of Commerce. Discover local businesses, services, and community partners that keep our economy thriving." />
+  <meta property="og:image"        content="https://bankai-code-op.github.io/wdd231/chamber/images/og-image.svg" />
+  <meta property="og:image:type"   content="image/svg+xml" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Chamber of Commerce – Member Directory" />
+  <meta property="og:url"          content="https://bankai-code-op.github.io/wdd231/chamber/directory.html" />
+  <meta property="og:locale"       content="en_US" />
+
+  <!--  Stylesheets (normalize → small → larger)  -->
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/small.css" />
+  <link rel="stylesheet" href="styles/larger.css" media="screen and (min-width: 768px)" />
+
+  <!--  Scripts  -->
+  <script src="scripts/navigation.js" defer></script>
+</head>
+<body>
+
+  <!--  Header  -->
+  <header>
+    <div class="header-brand">
+      <img src="images/favicon.svg"
+           alt="Chamber of Commerce logo"
+           width="48" height="48"
+           class="header-logo" />
+      <div class="header-text">
+        <span class="header-title">Chamber of Commerce</span>
+        <p class="header-tagline">Connecting Local Businesses · Strengthening Our Community</p>
+      </div>
+    </div>
+
+    <!-- Hamburger (visible on mobile, hidden via CSS on 768px+) -->
+    <button id="menu" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+  </header>
+
+  <!--  Navigation  -->
+  <nav id="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="directory.html" class="active" aria-current="page">Directory</a>
+    <a href="join.html">Join</a>
+    <a href="discover.html">Discover</a>
+  </nav>
+
+  <!--  Main Content  -->
+  <main>
+    <section class="directory-section">
+      <h2>Member Directory</h2>
+      <p>Browse our community of member businesses below.</p>
+
+      <!-- Grid / List toggle controls -->
+      <div class="view-controls" role="group" aria-label="View options">
+        <button class="view-btn active" id="btn-grid" aria-label="Grid view" title="Grid view">&#9638;</button>
+        <button class="view-btn"        id="btn-list" aria-label="List view"  title="List view" >&#9776;</button>
+      </div>
+
+      <!-- Member cards injected here by JavaScript (or server) -->
+      <div id="member-cards" class="cards-grid">
+
+        <!-- ── Placeholder cards (replace with JS-rendered content) ── -->
+        <article class="member-card">
+
+          <img src="images/placeholder-logo.svg" alt="Acme Business Solutions logo"
+               width="80" height="80" loading="lazy" />
+          <h3>Acme Business Solutions</h3>
+
+          <address>
+            123 Main Street, Cityville
+          </address>
+          
+          <p class="phone">(555) 010-0100</p>
+
+          <a class="website" href="https://acme.example.com" target="_blank" rel="noopener">
+            acme.example.com
+          </a>
+
+          <span class="membership-level gold">Gold Member</span>
+        </article>
+
+        <article class="member-card">
+          <img src="images/placeholder-logo.svg" alt="Sunrise Bakery logo"
+               width="80" height="80" loading="lazy" />
+          <h3>Sunrise Bakery</h3>
+          <address>
+            45 Oak Avenue, Cityville
+          </address>
+          <p class="phone">(555) 020-0200</p>
+          <a class="website" href="https://sunrise.example.com" target="_blank" rel="noopener">
+            sunrise.example.com
+          </a>
+          <span class="membership-level silver">Silver Member</span>
+        </article>
+
+        <article class="member-card">
+          <img src="images/placeholder-logo.svg" alt="Cityville Realty logo"
+               width="80" height="80" loading="lazy" />
+          <h3>Cityville Realty</h3>
+          <address>
+            789 Commerce Blvd, Cityville
+          </address>
+          <p class="phone">(555) 030-0300</p>
+          <a class="website" href="https://realty.example.com" target="_blank" rel="noopener">
+            realty.example.com
+          </a>
+          <span class="membership-level gold">Gold Member</span>
+        </article>
+
+        <article class="member-card">
+          <img src="images/placeholder-logo.svg" alt="Green Valley Landscaping logo"
+               width="80" height="80" loading="lazy" />
+          <h3>Green Valley Landscaping</h3>
+          <address>
+            12 Garden Road, Cityville
+          </address>
+          <p class="phone">(555) 040-0400</p>
+          <a class="website" href="https://greenvalley.example.com" target="_blank" rel="noopener">
+            greenvalley.example.com
+          </a>
+          <span class="membership-level member">Member</span>
+        </article>
+
+      </div><!-- #member-cards -->
+    </section>
+  </main>
+
+  <!--  Footer  -->
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Chamber of Commerce &mdash; Mike Chishala</p>
+    <p id="lastModified"></p>
+  </footer>
+
+  <script>
+    // Year and last-modified
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.getElementById('lastModified').textContent =
+      'Last modified: ' + document.lastModified;
+
+    // Grid / List view toggle
+    const gridBtn   = document.getElementById('btn-grid');
+    const listBtn   = document.getElementById('btn-list');
+    const cardArea  = document.getElementById('member-cards');
+
+    gridBtn.addEventListener('click', () => {
+      cardArea.classList.remove('list-view');
+      gridBtn.classList.add('active');
+      listBtn.classList.remove('active');
+    });
+
+    listBtn.addEventListener('click', () => {
+      cardArea.classList.add('list-view');
+      listBtn.classList.add('active');
+      gridBtn.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>

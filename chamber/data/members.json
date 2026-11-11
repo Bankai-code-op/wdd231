@@ -1,0 +1,108 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Acme Business Solutions",
+      "address": "123 Main Street, Cityville, ST 10001",
+      "phone": "(555) 010-0100",
+      "website": "https://acme.example.com",
+      "image": "images/members/acme.svg",
+      "membershipLevel": 3,
+      "tagline": "Enterprise solutions for modern businesses",
+      "industry": "Technology",
+      "founded": 1998,
+      "employees": 120
+    },
+    {
+      "id": 2,
+      "name": "Sunrise Bakery & Café",
+      "address": "45 Oak Avenue, Cityville, ST 10002",
+      "phone": "(555) 020-0200",
+      "website": "https://sunrise.example.com",
+      "image": "images/members/sunrise.svg",
+      "membershipLevel": 2,
+      "tagline": "Fresh-baked goodness every morning",
+      "industry": "Food & Beverage",
+      "founded": 2005,
+      "employees": 18
+    },
+    {
+      "id": 3,
+      "name": "Cityville Realty Group",
+      "address": "789 Commerce Blvd, Cityville, ST 10003",
+      "phone": "(555) 030-0300",
+      "website": "https://cityvillerealty.example.com",
+      "image": "images/members/realty.svg",
+      "membershipLevel": 3,
+      "tagline": "Finding the perfect home for every family",
+      "industry": "Real Estate",
+      "founded": 2001,
+      "employees": 55
+    },
+    {
+      "id": 4,
+      "name": "Green Valley Landscaping",
+      "address": "12 Garden Road, Cityville, ST 10004",
+      "phone": "(555) 040-0400",
+      "website": "https://greenvalley.example.com",
+      "image": "images/members/greenvalley.svg",
+      "membershipLevel": 1,
+      "tagline": "Transforming outdoor spaces beautifully",
+      "industry": "Landscaping",
+      "founded": 2010,
+      "employees": 24
+    },
+    {
+      "id": 5,
+      "name": "Cityville Community Hospital",
+      "address": "500 Health Parkway, Cityville, ST 10005",
+      "phone": "(555) 050-0500",
+      "website": "https://cvhospital.example.com",
+      "image": "images/members/hospital.svg",
+      "membershipLevel": 3,
+      "tagline": "Caring for our community's health since 1965",
+      "industry": "Healthcare",
+      "founded": 1965,
+      "employees": 850
+    },
+    {
+      "id": 6,
+      "name": "Bright Minds Academy",
+      "address": "321 Learning Lane, Cityville, ST 10006",
+      "phone": "(555) 060-0600",
+      "website": "https://brightminds.example.com",
+      "image": "images/members/academy.svg",
+      "membershipLevel": 2,
+      "tagline": "Empowering tomorrow's leaders today",
+      "industry": "Education",
+      "founded": 2008,
+      "employees": 42
+    },
+    {
+      "id": 7,
+      "name": "Summit Financial Advisors",
+      "address": "88 Prosperous Way, Cityville, ST 10007",
+      "phone": "(555) 070-0700",
+      "website": "https://summitfa.example.com",
+      "image": "images/members/summit.svg",
+      "membershipLevel": 2,
+      "tagline": "Building wealth and securing your future",
+      "industry": "Finance",
+      "founded": 2003,
+      "employees": 30
+    },
+    {
+      "id": 8,
+      "name": "Iron Forge Fabrication",
+      "address": "1400 Industrial Drive, Cityville, ST 10008",
+      "phone": "(555) 080-0800",
+      "website": "https://ironforge.example.com",
+      "image": "images/members/ironforge.svg",
+      "membershipLevel": 1,
+      "tagline": "Precision metal work, crafted to last",
+      "industry": "Manufacturing",
+      "founded": 1992,
+      "employees": 76
+    }
+  ]
+}
