@@ -16,9 +16,15 @@
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="apple-touch-icon" href="images/favicon.svg" />
 
+  <!--  Fonts — non-render-blocking (loads with low priority, swapped in once ready) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  </noscript>
+
   <link rel="preload" href="data/members.json" as="fetch" crossorigin="anonymous" />
   <link rel="preload" href="images/members/acme.svg" as="image" type="image/svg+xml" fetchpriority="high" />
 
@@ -36,7 +42,7 @@
   <meta property="og:url"          content="https://bankai-code-op.github.io/wdd231/chamber/directory.html" />
   <meta property="og:locale"       content="en_US" />
 
-  <!--  Stylesheets (normalize → small → larger)  -->
+  <!--  Stylesheets (normalize → small → larger) — minify these before deploying -->
   <link rel="stylesheet" href="styles/normalize.css" />
   <link rel="stylesheet" href="styles/small.css" />
   <link rel="stylesheet" href="styles/larger.css" media="screen and (min-width: 768px)" />
@@ -89,7 +95,7 @@
         <article class="member-card">
           <img src="images/members/acme.svg" alt="Acme Business Solutions logo"
                width="80" height="80" fetchpriority="high" />
-          <h3>Acme Business Solutions</h3>
+          <h2>Acme Business Solutions</h2>
           <p class="industry">Technology</p>
           <address>123 Main Street, Cityville, ST 10001</address>
           <p class="phone">(555) 010-0100</p>

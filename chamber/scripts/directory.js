@@ -1,11 +1,4 @@
-/**
- * directory.js
- * Fetches member data from data/members.json and renders
- * member cards on the directory page.
- * Supports Grid ↔ List view toggle.
- */
-
-// ── Constants ──────────────────────────────────────────────────────────────
+//  Constants
 const DATA_URL   = 'data/members.json';
 const CARD_AREA  = document.getElementById('member-cards');
 const BTN_GRID   = document.getElementById('btn-grid');
@@ -17,11 +10,7 @@ const LEVEL_MAP = {
   3: { label: 'Gold Member',   css: 'gold'   },
 };
 
-// ── Fetch & Render ──────────────────────────────────────────────────────────
-/**
- * Fetches the JSON data file and returns the members array.
- * @returns {Promise<Array>}
- */
+//  Fetch & Render
 async function fetchMembers() {
   const response = await fetch(DATA_URL);
   if (!response.ok) {
@@ -31,11 +20,6 @@ async function fetchMembers() {
   return data.members;
 }
 
-/**
- * Builds and returns a single member <article> card element.
- * @param {Object} member
- * @returns {HTMLElement}
- */
 function buildCard(member, isFirstCard) {
   const { name, address, phone, website, image, membershipLevel,
           tagline, industry, founded } = member;
@@ -56,7 +40,7 @@ function buildCard(member, isFirstCard) {
       ${isFirstCard ? 'fetchpriority="high"' : ''}
       onerror="this.src='images/placeholder-logo.svg'"
     />
-    <h3>${name}</h3>
+    <h2>${name}</h2>
     <p class="industry">${industry}</p>
     <address>${address}</address>
     <p class="phone">${phone}</p>
@@ -71,33 +55,48 @@ function buildCard(member, isFirstCard) {
   return article;
 }
 
-/**
- * Clears the card container and renders all member cards.
- * @param {Array} members
- */
-function renderCards(members) {
-  CARD_AREA.innerHTML = '';                     // clear loading state
-  const fragment = document.createDocumentFragment();
-  members.forEach((member, index) => {
-    fragment.appendChild(buildCard(member, index === 0));
-  });
-  CARD_AREA.appendChild(fragment);
+function renderCardsChunked(members) {
+  const hasStaticFirstCard = CARD_AREA.querySelector('.member-card') !== null;
+  const toRender = hasStaticFirstCard ? members.slice(1) : members;
+  let i = 0;
+
+  function renderNext(deadline) {
+    while (i < toRender.length && (deadline.timeRemaining() > 0 || deadline.didTimeout)) {
+      const isFirst = i === 0 && !hasStaticFirstCard;
+      CARD_AREA.appendChild(buildCard(toRender[i], isFirst));
+      i++;
+    }
+    if (i < toRender.length) {
+      requestIdleCallback(renderNext);
+    }
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(renderNext);
+  } else {
+    function fallbackBatch() {
+      const batchEnd = Math.min(i + 2, toRender.length);
+      for (; i < batchEnd; i++) {
+        CARD_AREA.appendChild(buildCard(toRender[i], false));
+      }
+      if (i < toRender.length) setTimeout(fallbackBatch, 0);
+    }
+    fallbackBatch();
+  }
 }
 
-/**
- * Shows a user-friendly error message inside the card area.
- * @param {Error} err
- */
 function showError(err) {
-  CARD_AREA.innerHTML = `
-    <p class="error-msg" role="alert">
-      ⚠️ Unable to load member directory. Please try refreshing the page.
-      <br><small>${err.message}</small>
-    </p>
+  const errorEl = document.createElement('p');
+  errorEl.className = 'error-msg';
+  errorEl.setAttribute('role', 'alert');
+  errorEl.innerHTML = `
+    ⚠️ Unable to load the rest of the member directory. Please try refreshing the page.
+    <br><small>${err.message}</small>
   `;
+  CARD_AREA.appendChild(errorEl);
 }
 
-// ── View Toggle ─────────────────────────────────────────────────────────────
+//  View Toggle
 function setView(view) {
   if (view === 'list') {
     CARD_AREA.classList.add('list-view');
@@ -119,17 +118,24 @@ function setView(view) {
 BTN_GRID.addEventListener('click', () => setView('grid'));
 BTN_LIST.addEventListener('click', () => setView('list'));
 
-// Restore user's last preference
 const savedView = localStorage.getItem('chamber-view') ?? 'grid';
 setView(savedView);
 
-// ── Init ────────────────────────────────────────────────────────────────────
-(async () => {
-  try {
-    const members = await fetchMembers();
-    renderCards(members);
-  } catch (err) {
-    console.error(err);
-    showError(err);
-  }
-})();
+//  Init
+function init() {
+  (async () => {
+    try {
+      const members = await fetchMembers();
+      renderCardsChunked(members);
+    } catch (err) {
+      console.error(err);
+      showError(err);
+    }
+  })();
+}
+
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(init);
+} else {
+  setTimeout(init, 1);
+}
