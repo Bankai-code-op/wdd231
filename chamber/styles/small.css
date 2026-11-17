@@ -6,23 +6,41 @@
     --clr-gold: #d4a017;
     --clr-gold-light: #fef3c7;
     --clr-bg-page: #f8fafc;
-    --clr-bg-card: #fff;
+    --clr-bg-card: #ffffff;
     --clr-border: #e2e8f0;
     --clr-text: #0f172a;
     --clr-text-muted: #475569;
-    --clr-white: #fff;
+    --clr-white: #ffffff;
+    --clr-link-hover: #075985;
+    --clr-nav-light: #bfdbfe;
+    --clr-nav-active: #0c4a6e;
+    --clr-border-light: #e2e8f0;
+    --clr-silver-bg: #f1f5f9;
+    --clr-border-muted: #94a3b8;
+    --clr-gold-text: #92400e;
+    --clr-error-text: #b91c1c;
+    --clr-error-bg: #fff1f2;
+    --clr-error-border: #fecdd3;
+    --clr-footer-text: #cbd5e1;
+    --clr-banner-bg: #eaf4fb;
+    --clr-white-35: #ffffff59;
+    --clr-white-20: #ffffff33;
+    --clr-white-07: #ffffff12;
+    --clr-shadow-dark: #0000002e;
+    --clr-shadow-light: #0f172a12;
+    --clr-shadow-medium: #0f172a1c;
     --ff-heading: 'Georgia', 'Times New Roman', serif;
     --ff-body: 'Roboto', 'Segoe UI', Arial, sans-serif;
     --transition: .2s ease;
     --radius: 8px;
-    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.07);
-    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.11)
+    --shadow-sm: 0 2px 8px #0f172a12;
+    --shadow-md: 0 4px 16px #0f172a1c
 }
 
 .member-card .website:hover,
 .member-card .website:focus-visible {
-    color: #075985;
-    outline-color: #075985
+    color: var(--clr-link-hover);
+    outline-color: var(--clr-link-hover)
 }
 
 *,
@@ -64,7 +82,7 @@ a {
 
 a:hover,
 a:focus-visible {
-    color: #0369a1;
+    color: var(--clr-secondary);
     text-decoration: underline;
     outline: 2px solid var(--clr-secondary);
     outline-offset: 2px
@@ -85,7 +103,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: .75rem 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 2px 10px var(--clr-shadow-dark);
     position: sticky;
     top: 0;
     z-index: 100
@@ -122,7 +140,7 @@ header {
 
 .header-tagline {
     font-size: .72rem;
-    color: #bfdbfe;
+    color: var(--clr-nav-light);
     margin-top: .1rem;
     white-space: nowrap;
     overflow: hidden;
@@ -131,7 +149,7 @@ header {
 
 #menu {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid var(--clr-white-35);
     color: var(--clr-white);
     font-size: 1.5rem;
     line-height: 1;
@@ -148,7 +166,7 @@ header {
 
 #menu:hover,
 #menu:focus-visible {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--clr-white-20);
     border-color: var(--clr-white);
     outline: 0
 }
@@ -166,19 +184,19 @@ header {
 
 #nav-bar a {
     display: block;
-    color: #e2e8f0;
+    color: var(--clr-border-light);
     text-decoration: none;
     padding: .9rem 1.25rem;
     font-size: 1rem;
     font-weight: 500;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid var(--clr-white-07);
     border-left: 4px solid transparent;
     transition: background-color var(--transition), color var(--transition), border-color var(--transition)
 }
 
 #nav-bar a:hover,
 #nav-bar a:focus-visible {
-    background-color: #075985;
+    background-color: var(--clr-link-hover);
     color: var(--clr-white);
     border-left-color: var(--clr-accent);
     outline: 0
@@ -186,7 +204,7 @@ header {
 
 #nav-bar a.active,
 #nav-bar a[aria-current="page"] {
-    background-color: #0c4a6e;
+    background-color: var(--clr-nav-active);
     color: var(--clr-white);
     font-weight: 700;
     border-left-color: var(--clr-accent)
@@ -330,14 +348,14 @@ main {
 }
 
 .membership-level.silver {
-    background-color: #f1f5f9;
-    color: #475569;
-    border: 1px solid #94a3b8
+    background-color: var(--clr-silver-bg);
+    color: var(--clr-text-muted);
+    border: 1px solid var(--clr-border-muted)
 }
 
 .membership-level.gold {
     background-color: var(--clr-gold-light);
-    color: #92400e;
+    color: var(--clr-gold-text);
     border: 1px solid var(--clr-gold)
 }
 
@@ -372,9 +390,9 @@ main {
 }
 
 .error-msg {
-    color: #b91c1c;
-    background-color: #fff1f2;
-    border: 1px solid #fecdd3;
+    color: var(--clr-error-text);
+    background-color: var(--clr-error-bg);
+    border: 1px solid var(--clr-error-border);
     border-radius: var(--radius)
 }
 
@@ -409,7 +427,7 @@ main {
 
 footer {
     background-color: var(--clr-primary-dark);
-    color: #e2e8f0;
+    color: var(--clr-border-light);
     text-align: center;
     padding: 1.5rem 1rem;
     margin-top: auto;
@@ -421,12 +439,12 @@ footer {
 
 footer p {
     font-size: .88rem;
-    color: #cbd5e1
+    color: var(--clr-footer-text)
 }
 
 #lastModified {
     font-size: .8rem;
-    color: #94a3b8;
+    color: var(--clr-border-muted);
     min-height: 1.2em
 }
 
@@ -743,7 +761,7 @@ footer p {
     gap: 1rem;
     padding: 1rem;
     border: 1px solid var(--clr-border);
-    background: #eaf4fb
+    background: var(--clr-banner-bg)
 }
 
 .join-banner h2 {
