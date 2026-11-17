@@ -183,7 +183,8 @@ async function loadWeather() {
 
   try {
     if (!window.OPENWEATHER_API_KEY) {
-      throw new Error('OpenWeatherMap API key is missing. Add it to the local weather config.');
+      status.textContent = 'Add a valid OpenWeatherMap API key to scripts/weather-config.local.js.';
+      return;
     }
 
     const query = new URLSearchParams({
@@ -200,7 +201,9 @@ async function loadWeather() {
     const failedResponse = responses.find((response) => !response.ok);
     if (failedResponse) {
       const errorData = results[responses.indexOf(failedResponse)];
-      throw new Error(`Weather request failed: ${errorData.message ?? failedResponse.statusText}`);
+      throw new Error(
+        `Weather request failed: ${errorData.message ?? failedResponse.statusText}`
+      );
     }
 
     renderWeather(results[0], results[1]);
