@@ -1,5 +1,6 @@
+const API_KEY = window.OPENWEATHER_API_KEY;
 const url =
-  'https://api.openweathermap.org/data/2.5/weather?lat=49.39814165195334&lon=11.095801817060158&units=metric&appid=REMOVED_API_KEY';
+  `https://api.openweathermap.org/data/2.5/weather?lat=49.39814165195334&lon=11.095801817060158&units=metric&appid=${API_KEY}`;
 
 // select HTML elements in the document
 const currentTemp = document.querySelector('#current-temp');
