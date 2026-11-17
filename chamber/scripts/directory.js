@@ -10,7 +10,6 @@ const LEVEL_MAP = {
   3: { label: 'Gold Member',   css: 'gold'   },
 };
 
-//  Fetch & Render
 async function fetchMembers() {
   const response = await fetch(DATA_URL);
   if (!response.ok) {
@@ -96,7 +95,6 @@ function showError(err) {
   CARD_AREA.appendChild(errorEl);
 }
 
-//  View Toggle
 function setView(view) {
   if (view === 'list') {
     CARD_AREA.classList.add('list-view');
@@ -121,7 +119,6 @@ BTN_LIST.addEventListener('click', () => setView('list'));
 const savedView = localStorage.getItem('chamber-view') ?? 'grid';
 setView(savedView);
 
-//  Init
 function init() {
   (async () => {
     try {
