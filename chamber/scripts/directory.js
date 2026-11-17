@@ -37,7 +37,6 @@ function buildCard(member, isFirstCard) {
       height="80"
       loading="${isFirstCard ? 'eager' : 'lazy'}"
       ${isFirstCard ? 'fetchpriority="high"' : ''}
-      onerror="this.src='images/placeholder-logo.svg'"
     />
     <h2>${name}</h2>
     <p class="industry">${industry}</p>
@@ -50,6 +49,10 @@ function buildCard(member, isFirstCard) {
     <p class="founded">Est. ${founded}</p>
     <span class="membership-level ${level.css}">${level.label}</span>
   `;
+
+  article.querySelector('img').addEventListener('error', (event) => {
+    event.currentTarget.src = 'images/placeholder-logo.svg';
+  });
 
   return article;
 }
