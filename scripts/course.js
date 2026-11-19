@@ -82,9 +82,35 @@ const courses = [
 // DOM Selectors
 const coursesContainer = document.getElementById("courses-container");
 const creditCountSpan = document.getElementById("credit-count");
+const courseDetails = document.getElementById("course-details");
 const allBtn = document.getElementById("all-courses");
 const cseBtn = document.getElementById("cse-courses");
 const wddBtn = document.getElementById("wdd-courses");
+
+function displayCourseDetails(course) {
+    if (!courseDetails) return;
+
+    courseDetails.innerHTML = `
+        <button id="closeModal" type="button" aria-label="Close course details">Close</button>
+        <h2>${course.subject} ${course.number}</h2>
+        <h3>${course.title}</h3>
+        <p><strong>Credits:</strong> ${course.credits}</p>
+        <p><strong>Certificate:</strong> ${course.certificate}</p>
+        <p>${course.description}</p>
+        <p><strong>Technologies:</strong> ${course.technology.join(", ")}</p>
+    `;
+    courseDetails.showModal();
+
+    courseDetails.querySelector("#closeModal")?.addEventListener("click", () => {
+        courseDetails.close();
+    });
+}
+
+courseDetails?.addEventListener("click", event => {
+    if (event.target === courseDetails) {
+        courseDetails.close();
+    }
+});
 
 /**
  * Dynamically displays the courses in the certificate section
@@ -95,17 +121,22 @@ function displayCourses(filteredCourses) {
     coursesContainer.innerHTML = "";
 
     filteredCourses.forEach(course => {
-        const card = document.createElement("div");
+        const card = document.createElement("button");
+        card.type = "button";
         card.className = `course-card ${course.completed ? "completed" : "incomplete"}`;
 
         card.innerHTML = `
-            <h3>
+            <span class="course-card-heading">
                 <span>${course.subject} ${course.number}</span>
                 <span class="status-badge">${course.completed ? "✓ Done" : "In Progress"}</span>
-            </h3>
-            <p class="course-name">${course.title}</p>
+            </span>
+            <span class="course-name">${course.title}</span>
             <span class="course-credits">${course.credits} Credits</span>
         `;
+
+        card.addEventListener("click", () => {
+            displayCourseDetails(course);
+        });
 
         coursesContainer.appendChild(card);
     });
