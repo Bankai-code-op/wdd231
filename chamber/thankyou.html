@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Received | Chamber of Commerce</title>
+  <meta name="description" content="Confirmation that your Chamber of Commerce membership application was received.">
+  <meta name="author" content="Mike Chishala">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css" media="screen and (min-width: 768px)">
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+
+</head>
+
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header>
+    <div class="header-brand">
+      
+      <img src="images/favicon.svg" alt="Chamber of Commerce logo" width="48" height="48" class="header-logo">
+      <div class="header-text">
+        <span class="header-title">Chamber of Commerce</span>
+        <p class="header-tagline">Connecting Local Businesses · Strengthening Our Community</p>
+      </div>
+
+    </div>
+    <button id="menu" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+  </header>
+
+  <nav id="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Directory</a>
+    <a href="join.html">Join</a>
+  </nav>
+
+  <main class="thank-you-main" id="main-content">
+
+    <section class="thank-you-card" aria-labelledby="thank-you-heading">
+      <p class="section-eyebrow">Application submitted</p>
+      <h1 id="thank-you-heading">Thank you for joining!</h1>
+      <p>We have received your membership application and look forward to connecting with you.</p>
+      <dl id="thank-you-fields" class="thank-you-fields"></dl>
+      <a class="button button-gold" href="directory.html">Explore the member directory</a>
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Chamber of Commerce &mdash; Mike Chishala - Lusaka Zambia</p>
+    <p id="lastModified">Last modified:</p>
+  </footer>
+</body>
+</html>

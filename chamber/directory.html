@@ -48,7 +48,7 @@
   <script src="scripts/footer.js" defer></script>
 </head>
 <body>
-
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
     <div class="header-brand">
       <img src="images/favicon.svg"
@@ -68,17 +68,16 @@
     <a href="index.html">Home</a>
     <a href="directory.html" class="active" aria-current="page">Directory</a>
     <a href="join.html">Join</a>
-    <a href="discover.html">Discover</a>
   </nav>
 
-  <main>
+  <main id="main-content">
     <section class="directory-section">
       <h1>Member Directory</h1>
       <p>Browse our community of member businesses below.</p>
 
       <div class="view-controls" role="group" aria-label="View options">
-        <button class="view-btn active" id="btn-grid" aria-label="Grid view" title="Grid view">&#9638;</button>
-        <button class="view-btn"        id="btn-list" aria-label="List view"  title="List view" >&#9776;</button>
+        <button class="view-btn active" id="btn-grid" aria-label="Grid view" aria-pressed="true" title="Grid view">&#9638;</button>
+        <button class="view-btn" id="btn-list" aria-label="List view" aria-pressed="false" title="List view">&#9776;</button>
       </div>
 
       <div id="member-cards" class="cards-grid">
@@ -101,7 +100,7 @@
   </main>
 
   <footer>
-    <p>&copy; <span id="currentYear"></span> Chamber of Commerce &mdash; Mike Chishala</p>
+    <p>&copy; <span id="currentYear"></span> Chamber of Commerce &mdash; Mike Chishala - Lusaka Zambia</p>
     <p id="lastModified">Last modified: </p>
   </footer>
 

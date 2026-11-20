@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Chamber | Chamber of Commerce</title>
+  <meta name="description" content="Apply for membership in the Chamber of Commerce and connect with businesses across the Cityville community.">
+  <meta name="author" content="Mike Chishala">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css" media="screen and (min-width: 768px)">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header>
+    <div class="header-brand">
+
+      <img src="images/favicon.svg" alt="Chamber of Commerce logo" width="48" height="48" class="header-logo">
+      <div class="header-text">
+        <span class="header-title">Chamber of Commerce</span>
+        <p class="header-tagline">Connecting Local Businesses · Strengthening Our Community</p>
+      </div>
+
+    </div>
+    <button id="menu" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+  </header>
+
+  <nav id="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="directory.html">Directory</a>
+    <a href="join.html">Join</a>
+  </nav>
+
+  <main class="join-main" id="main-content">
+    <section class="join-introduction">
+      <p class="section-eyebrow">Membership application</p>
+      <h1>Join the Chamber</h1>
+      <p>Become part of a network that helps local businesses connect, learn, and thrive.</p>
+    </section>
+
+    <div class="join-layout">
+      <section class="join-form-section" aria-labelledby="application-heading">
+        <h2 id="application-heading">Applicant Information</h2>
+        <form class="join-form" method="get" action="thankyou.html">
+          <label>First name
+            <input type="text" name="firstName" required autocomplete="given-name" title="Enter your first name">
+          </label>
+
+          <label>Last name
+            <input type="text" name="lastName" required autocomplete="family-name" title="Enter your last name">
+          </label>
+
+          <label>Applicant title
+            <input type="text" name="organizationTitle" pattern="[A-Za-z -]{7,}" autocomplete="organization-title" title="At least 7 characters using letters, spaces, or hyphens">
+          </label>
+
+          <label>Email address
+            <input type="email" name="email" required autocomplete="email" placeholder="name@example.com" title="Enter a valid email address">
+          </label>
+
+          <label>Mobile phone
+            <input type="tel" name="mobile" required autocomplete="tel" placeholder="555-555-1234" title="Enter your mobile phone number">
+          </label>
+
+          <label>Organization name
+            <input type="text" name="organization" required autocomplete="organization" title="Enter your organization name">
+          </label>
+
+          <label>Membership level
+            <select name="membership" required>
+              <option value="" selected disabled>Select a membership level</option>
+              <option value="np">NP Membership — Nonprofit</option>
+              <option value="bronze">Bronze Membership</option>
+              <option value="silver">Silver Membership</option>
+              <option value="gold">Gold Membership</option>
+            </select>
+          </label>
+
+          <label>Organization description
+            <textarea name="description" rows="5" title="Describe your organization"></textarea>
+          </label>
+
+          <input type="hidden" id="timestamp" name="timestamp">
+          <input class="submit-button" type="submit" value="Apply for Membership">
+        </form>
+      </section>
+
+      <aside class="membership-section" aria-labelledby="levels-heading">
+        <h2 id="levels-heading">Membership Levels</h2>
+
+        <div class="membership-grid">
+          <article class="membership-card">
+            <p class="membership-label">For nonprofits</p>
+            <h3>NP Membership</h3>
+            <p class="membership-cost">$0 <span>per year</span></p>
+            <p>No membership fee for qualifying nonprofit organizations.</p>
+            <a class="benefits-link" href="#np-benefits" data-benefits="np-benefits">View benefits</a>
+          </article>
+
+          <article class="membership-card">
+            <p class="membership-label">Build connections</p>
+            <h3>Bronze Membership</h3>
+            <p class="membership-cost">$75 <span>per year</span></p>
+            <p>A great starting point for local business visibility.</p>
+            <a class="benefits-link" href="#bronze-benefits" data-benefits="bronze-benefits">View benefits</a>
+          </article>
+
+          <article class="membership-card">
+            <p class="membership-label">Grow your reach</p>
+            <h3>Silver Membership</h3>
+            <p class="membership-cost">$150 <span>per year</span></p>
+            <p>Additional promotion and training opportunities.</p>
+            <a class="benefits-link" href="#silver-benefits" data-benefits="silver-benefits">View benefits</a>
+          </article>
+
+          <article class="membership-card">
+            <p class="membership-label">Maximum impact</p>
+            <h3>Gold Membership</h3>
+            <p class="membership-cost">$300 <span>per year</span></p>
+            <p>Premium recognition, training, and advertising benefits.</p>
+            <a class="benefits-link" href="#gold-benefits" data-benefits="gold-benefits">View benefits</a>
+          </article>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <dialog id="np-benefits" aria-labelledby="np-title">
+    <h2 id="np-title">NP Membership Benefits</h2>
+    <p>No annual fee for qualifying nonprofit organizations.</p>
+    <ul>
+        <li>Chamber directory listing</li>
+        <li>Community event invitations</li>
+        <li>Networking opportunities</li>
+    </ul>
+    <button type="button" class="dialog-close">Close</button>
+  </dialog>
+
+  <dialog id="bronze-benefits" aria-labelledby="bronze-title">
+    <h2 id="bronze-title">Bronze Membership Benefits</h2>
+    <p>$75 per year.</p>
+    <ul>
+        <li>All NP benefits</li>
+        <li>Quarterly member newsletter</li>
+        <li>Discounted business training</li>
+        <li>Member event discounts</li>
+    </ul>
+    <button type="button" class="dialog-close">Close</button>
+  </dialog>
+
+  <dialog id="silver-benefits" aria-labelledby="silver-title">
+    <h2 id="silver-title">Silver Membership Benefits</h2>
+    <p>$150 per year.</p>
+    <ul>
+        <li>All Bronze benefits</li>
+        <li>Member spotlight opportunity</li>
+        <li>Priority event registration</li>
+        <li>Two complimentary training sessions</li>
+    </ul>
+    <button type="button" class="dialog-close">Close</button>
+  </dialog>
+
+  <dialog id="gold-benefits" aria-labelledby="gold-title">
+    <h2 id="gold-title">Gold Membership Benefits</h2>
+    <p>$300 per year.</p>
+    <ul>
+        <li>All Silver benefits</li>
+        <li>Homepage advertising</li>
+        <li>Premium event sponsorship recognition</li>
+        <li>Four complimentary training sessions</li>
+    </ul>
+    <button type="button" class="dialog-close">Close</button>
+  </dialog>
+
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Chamber of Commerce &mdash; Mike Chishala - Lusaka Zambia</p>
+    <p id="lastModified">Last modified:</p>
+  </footer>
+</body>
+</html>
