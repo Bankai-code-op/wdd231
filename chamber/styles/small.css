@@ -923,19 +923,23 @@ footer p {
     border-left: 5px solid var(--clr-accent);
     border-radius: var(--radius);
     background: var(--clr-bg-card);
-    box-shadow: var(--shadow-sm)
+    box-shadow: var(--shadow-sm);
+    animation: membership-enter .6s ease both
 }
 
 .membership-card:nth-child(2) {
-    border-left-color: #a16207
+    border-left-color: #a16207;
+    animation-delay: .08s
 }
 
 .membership-card:nth-child(3) {
-    border-left-color: #64748b
+    border-left-color: #64748b;
+    animation-delay: .16s
 }
 
 .membership-card:nth-child(4) {
-    border-left-color: var(--clr-gold)
+    border-left-color: var(--clr-gold);
+    animation-delay: .24s
 }
 
 .membership-card h3 {
@@ -957,9 +961,9 @@ footer p {
     letter-spacing: .5px
 }
 
-.membership-cost {
-    color: var(--clr-primary) !important;
-    font-size: 1.15rem !important;
+.membership-card .membership-cost {
+    color: var(--clr-primary);
+    font-size: 1.15rem;
     font-weight: 700
 }
 
@@ -1042,14 +1046,6 @@ dialog ul {
 .thank-you-fields dd {
     overflow-wrap: anywhere
 }
-
-.membership-card {
-    animation: membership-enter .6s ease both
-}
-
-.membership-card:nth-child(2) { animation-delay: .08s }
-.membership-card:nth-child(3) { animation-delay: .16s }
-.membership-card:nth-child(4) { animation-delay: .24s }
 
 @keyframes membership-enter {
     from { opacity: 0; transform: translateY(12px) }
