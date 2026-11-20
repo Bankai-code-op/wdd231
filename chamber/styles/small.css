@@ -401,11 +401,7 @@ main {
     grid-column: 1 / -1;
     text-align: center;
     padding: 2rem 1rem;
-    color: var(--clr-text-muted);
-    font-size: 1rem
-}
-
-.error-msg {
+    font-size: 1rem;
     color: var(--clr-error-text);
     background-color: var(--clr-error-bg);
     border: 1px solid var(--clr-error-border);
