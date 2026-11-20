@@ -27,8 +27,6 @@
     --clr-white-20: #ffffff33;
     --clr-white-07: #ffffff12;
     --clr-shadow-dark: #0000002e;
-    --clr-shadow-light: #0f172a12;
-    --clr-shadow-medium: #0f172a1c;
     --ff-heading: 'Georgia', 'Times New Roman', serif;
     --ff-body: 'Roboto', 'Segoe UI', Arial, sans-serif;
     --transition: .2s ease;
@@ -399,7 +397,6 @@ main {
     color: var(--clr-text-muted)
 }
 
-.loading-msg,
 .error-msg {
     grid-column: 1 / -1;
     text-align: center;
